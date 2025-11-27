@@ -6,67 +6,23 @@
   <title>WebAR Model</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f0f0f0;
-      font-family: Arial, sans-serif;
-    }
-    #arContainer {
-      width: 100%;
-      max-width: 600px;
-      height: 80vh;
-      position: relative;
-    }
+    body { margin: 0; }
     model-viewer {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background-color: #fff;
-    }
-    #arButton {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 12px 24px;
-      background-color: #007aff;
-      color: #fff;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 10;
-    }
-    #arButton:active {
-      background-color: #005bb5;
     }
   </style>
 </head>
 <body>
-  <div id="arContainer">
-    <model-viewer id="modelViewer"
-                  src="ipc.glb"
-                  ios-src="ipc.usdz"
-                  ar
-                  ar-modes="webxr scene-viewer quick-look"
-                  camera-controls
-                  auto-rotate
-                  environment-image="neutral">
-    </model-viewer>
-    <button id="arButton">View in AR</button>
-  </div>
-
-  <script>
-    const modelViewer = document.getElementById('modelViewer');
-    const arButton = document.getElementById('arButton');
-
-    arButton.addEventListener('click', () => {
-      // Launch AR mode
-      modelViewer.activateAR();
-    });
-  </script>
+  <model-viewer 
+      src="ipc.glb"
+      ios-src="ipc.usdz"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      environment-image="neutral">
+  </model-viewer>
 </body>
 </html>
